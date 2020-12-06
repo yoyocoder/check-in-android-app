@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Check-In App</string>
+    <string name="add">Add</string>
+    <string name="done">DONE</string>
+    <string name="add_check_in_entry">Add Check-In Entry</string>
+    <string name="check_in_entry_name">Check-In Entry Name</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+</resources>
