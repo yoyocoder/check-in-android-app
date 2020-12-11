@@ -1,22 +1,18 @@
 package com.yoyocoder.checkin.main
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yoyocoder.checkin.db.AppDatabase
 import com.yoyocoder.checkin.model.CheckInEntry
 import com.yoyocoder.checkin.model.CheckInEntryAction
 import com.yoyocoder.checkin.repositories.CheckInEntryRepository
 import kotlinx.coroutines.launch
 
-class MainActivityViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val repository: CheckInEntryRepository by lazy {
-        val appDatabase = AppDatabase.getInstance(application.applicationContext)
-        CheckInEntryRepository(appDatabase.attendeeDao())
-    }
+class MainActivityViewModel @ViewModelInject constructor(
+    private val repository: CheckInEntryRepository
+) : ViewModel() {
 
     private val checkInEntriesMutableLiveData: MutableLiveData<List<CheckInEntry>> =
         MutableLiveData()

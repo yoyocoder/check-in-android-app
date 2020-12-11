@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.yoyocoder.checkin.databinding.ActivityMainBinding
 import com.yoyocoder.checkin.main.CheckInEntryListFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

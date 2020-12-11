@@ -6,7 +6,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import com.yoyocoder.checkin.R
 import com.yoyocoder.checkin.databinding.FragmentAddCheckInEntryBinding
 import com.yoyocoder.checkin.main.MainActivityViewModel
@@ -15,9 +15,7 @@ import com.yoyocoder.checkin.model.CheckInEntry
 class AddNewCheckInEntryFragment : Fragment() {
 
     private lateinit var viewBinding: FragmentAddCheckInEntryBinding
-    private val viewModel: MainActivityViewModel by lazy {
-        ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
-    }
+    private val viewModel: MainActivityViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

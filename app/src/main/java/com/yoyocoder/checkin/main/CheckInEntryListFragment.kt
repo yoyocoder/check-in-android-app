@@ -5,20 +5,20 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.yoyocoder.checkin.R
 import com.yoyocoder.checkin.add.AddNewCheckInEntryFragment
 import com.yoyocoder.checkin.databinding.FragmentMainBinding
 import com.yoyocoder.checkin.model.CheckInEntryAction
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CheckInEntryListFragment : Fragment() {
 
     private lateinit var viewBinding: FragmentMainBinding
-    private val viewModel: MainActivityViewModel by lazy {
-        ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
-    }
+    private val viewModel: MainActivityViewModel by activityViewModels()
 
     private val checkInEntryAdapter by lazy { CheckInEntryAdapter(::showActionsOnCheckInEntryItem) }
 

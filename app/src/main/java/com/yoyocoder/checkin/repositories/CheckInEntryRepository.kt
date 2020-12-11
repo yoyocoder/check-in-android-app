@@ -4,8 +4,11 @@ import com.yoyocoder.checkin.db.CheckInEntryDao
 import com.yoyocoder.checkin.model.CheckInEntry
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class CheckInEntryRepository(private val checkInEntryDao: CheckInEntryDao) {
+class CheckInEntryRepository @Inject constructor(
+    private val checkInEntryDao: CheckInEntryDao
+) {
 
     suspend fun checkInEntries(): List<CheckInEntry> = withContext(Dispatchers.IO) {
         checkInEntryDao.getAllCheckInEntries()
